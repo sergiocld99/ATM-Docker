@@ -1,3 +1,8 @@
+# Concepts
+- Dockerfile: blueprint to build a docker image.
+- Image: template for running docker containers.
+- Container: just a running process.
+
 # Stage 1
 
 ## How to build the image
