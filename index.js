@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')   // no longer part of express
 const axios = require('axios')
 
 // dev
-const DEBUG = false
+const DEBUG = true
 
 // Importaciones de APIs
 const userApi = require("./routes/userApi");

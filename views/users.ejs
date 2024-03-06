@@ -15,6 +15,7 @@
     </a>
     
     <div class="main-content">
+        <% if (users?.length) { %>
         <div class="table-container">
             <table class="users-table">
                 <thead>
@@ -44,6 +45,7 @@
                   </tbody>
             </table>
         </div>
+        <% } %>
     </div>
 
     <%- include('partials/footer.ejs') %>

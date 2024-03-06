@@ -11,49 +11,53 @@
     <%- include('partials/header.ejs') %>
 
     <div class="main-content">
-        <div class="table-container">
-            <table class="cards-table">
-                <thead>
-                    <tr>
-                      <th>Número</th>
-                      <th>Estado</th>
-                      <th>Opciones</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% for (card of cards) { %>
+        <% if (cards?.length) { %>
+            <div class="table-container">
+                <table class="cards-table">
+                    <thead>
                         <tr>
-                            <td><%= card.nro %></td>
-                            <% if (card.ban) { %>
-                                <td>Bloqueado</td>
-                                <td class="td-options">
-                                    <div class="td-options">
-                                        <!-- DELETE method is not supported in forms -->
-                                        <form action="/api/cards/unban/<%= card._id %>" method="post">
-                                            <button class="big-btn" id="unban-btn">Desbloquear</button>
-                                        </form>
-                                            
-    
-                                    </div>
-                                </td>
-                            <% } else { %>
-                                <td>Habilitado</td>
-                                <td class="td-options">
-                                    <div class="td-options">
-                                        <!-- DELETE method is not supported in forms -->
-                                        <form action="/api/cards/ban/<%= card._id %>" method="post">
-                                            <button class="big-btn" id="ban-btn">Bloquear</button>
-                                        </form>
-                                            
-    
-                                    </div>
-                                </td>
-                            <% } %>
+                          <th>Número</th>
+                          <th>Estado</th>
+                          <th>Opciones</th>
                         </tr>
-                    <% } %>
-                  </tbody>
-            </table>
-        </div>
+                      </thead>
+                      <tbody>
+                        <% for (card of cards) { %>
+                            <tr>
+                                <td><%= card.nro %></td>
+                                <% if (card.ban) { %>
+                                    <td>Bloqueado</td>
+                                    <td class="td-options">
+                                        <div class="td-options">
+                                            <!-- DELETE method is not supported in forms -->
+                                            <form action="/api/cards/unban/<%= card._id %>" method="post">
+                                                <button class="big-btn" id="unban-btn">Desbloquear</button>
+                                            </form>
+                                                
+        
+                                        </div>
+                                    </td>
+                                <% } else { %>
+                                    <td>Habilitado</td>
+                                    <td class="td-options">
+                                        <div class="td-options">
+                                            <!-- DELETE method is not supported in forms -->
+                                            <form action="/api/cards/ban/<%= card._id %>" method="post">
+                                                <button class="big-btn" id="ban-btn">Bloquear</button>
+                                            </form>
+                                                
+        
+                                        </div>
+                                    </td>
+                                <% } %>
+                            </tr>
+                        <% } %>
+                      </tbody>
+                </table>
+            </div>
+        <% } %> 
+
+        
     </div>
 
     <%- include('partials/footer.ejs') %>
