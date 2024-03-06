@@ -76,7 +76,7 @@ const controller = {
         const doc = await model.findByIdAndUpdate(req.params.id, {ban: true}, { new: true });
 
         const result = await doc.save();
-        return result ? res.json(result) : res.status(400).json({message: "Error al actualizar"});
+        return result ? res.redirect('/front/cards') : res.status(400).json({message: "Error al actualizar"});
     },
 
     // Setea en false el campo "ban" de la tarjeta indicada por id 
@@ -90,7 +90,7 @@ const controller = {
         const doc = await model.findByIdAndUpdate(req.params.id, {ban: false}, { new: true });
 
         const result = await doc.save();
-        return result ? res.json(result) : res.status(400).json({message: "Error al actualizar"});
+        return result ? res.redirect('/front/cards') : res.status(400).json({message: "Error al actualizar"});
     },
 
     // Elimina una tarjeta de manera permanente

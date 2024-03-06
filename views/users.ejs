@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM - Usuarios</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- Since Express 4.0 -->
+    <%- include('partials/header.ejs') %>
+
+    <a href="/front/adduser">
+        <button class="add-btn main-buttons big-btn">Agregar</button>
+    </a>
+    
+    <div class="main-content">
+        <div class="table-container">
+            <table class="users-table">
+                <thead>
+                    <tr>
+                      <th>Nombre y Apellido</th>
+                      <th>Tarjetas</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for (user of users) { %>
+                        <tr>
+                            <td><%= user.nombre %></td>
+                            <td><%= user.tarjetas?.length %></td>
+                            <td>
+                                <div class="td-options">
+                                    <!-- DELETE method is not supported in forms -->
+                                    <form action="/api/users/delete/<%= user._id %>" method="post">
+                                        <button class="big-btn" id="delete-btn">Borrar</button>
+                                    </form>
+                                        
+
+                                </div>
+                            </td>
+                        </tr>
+                    <% } %>
+                  </tbody>
+            </table>
+        </div>
+    </div>
+
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM - Home</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- Since Express 4.0 -->
+    <%- include('partials/header.ejs') %>
+
+    <div class="main-buttons">
+        <a href="/front/users"><%= userCount %> Usuarios</a>
+        <a href="/front/cards"><%= cardCount %> Tarjetas</a>
+    </div>
+
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

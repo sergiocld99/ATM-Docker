@@ -1,7 +1,7 @@
 version: '1'
 services:
   app:
-    container_name: node-02
+    container_name: node-03
     volumes:
       - .:/app
     restart: always

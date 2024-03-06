@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM - Agregar Usuario</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- Since Express 4.0 -->
+    <%- include('partials/header.ejs') %>
+
+    <!-- Form -->
+    <div class="main-content">
+        <form method="post" action="/api/users/adduser">
+            <label for="nombre">
+                Nombre y Apellido:
+                
+              </label>
+
+              <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  required
+                />
+    
+              <input type="submit" value="Guardar Usuario" class="submit-btn big-btn"/>
+        </form>
+    </div>
+    
+
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

@@ -8,7 +8,7 @@ const controller = require('../controllers/userController');
 router.get('/count', controller.getCount)
 router.get('/all', controller.getAll)
 router.post('/adduser', controller.postUser)
-router.delete('/delete/:id', controller.deleteUser)
+router.post('/delete/:id', controller.deleteUser)
 
 // Atributo público
 module.exports = router;

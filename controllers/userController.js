@@ -29,7 +29,7 @@ const controller = {
       nombre: nombre,
     });
     const savedUser = await newUser.save();
-    res.json(savedUser);
+    res.redirect("/front/users")
   },
 
   // Elimina un usuario de manera permanente
@@ -48,7 +48,7 @@ const controller = {
         });
 
       result = await model.deleteOne({ _id: id });
-      return result ? res.json(result) : res.status(400);
+      return result ? res.redirect("/front/users") : res.status(400);
     } catch (error) {
       console.log(error);
     }
