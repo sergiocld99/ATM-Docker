@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')   // no longer part of express
 const axios = require('axios')
 
 // dev
-const DEBUG = true
+const DEBUG = false
 
 // Importaciones de APIs
 const userApi = require("./routes/userApi");
@@ -67,6 +67,15 @@ app.get('/front/users', async (req, res) => {
 app.get('/front/adduser', (req, res) => {
   res.render('adduser', {
     title: 'ATM Web Control Panel'
+  })
+})
+
+app.get('/front/addcard', async (req, res) => {
+  const users = await miApi.get('/users/all')
+
+  res.render('addcard', {
+    title: 'ATM Web Control Panel',
+    users: users.data.Usuarios
   })
 })
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM - Agregar Tarjeta</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- Since Express 4.0 -->
+    <%- include('partials/header.ejs') %>
+
+    <!-- Form -->
+    <div class="main-content">
+        <form method="post" action="/api/cards/addcard">
+            <label for="nro">Número de Tarjeta: </label>
+            <input type="number" name="nro" id="nro" required min="100000000000" max="9999999999999999"/>
+
+            <label for="pin">PIN: </label>
+            <input type="number" name="pin" id="pin" required min="0" max="9999"/>
+
+            <label for="fechavto">Fecha de Vencimiento:</label>
+            <input type="date" name="fechavto" id="fechavto" required min="2023-01-01" max="2099-12-31"/>
+
+            <label for="cvv">CVV:</label>
+            <input type="number" name="cvv" id="cvv" required min="0" max="999"/>
+
+            <label for="clienteSeleccionado">Cliente:</label>
+            <select name="clienteSeleccionado" id="clienteSeleccionado" required>
+                <% for (user of users) { %>
+                    <option value="<%= user._id %>"> <%= user.nombre %> </option>
+                <% } %>  
+            </select>
+    
+            <input type="submit" value="Guardar Tarjeta" class="submit-btn big-btn"/>
+        </form>
+    </div>
+    
+
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

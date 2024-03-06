@@ -10,6 +10,10 @@
     <!-- Since Express 4.0 -->
     <%- include('partials/header.ejs') %>
 
+    <a href="/front/addcard">
+        <button class="add-btn main-buttons big-btn">Agregar</button>
+    </a>
+
     <div class="main-content">
         <% if (cards?.length) { %>
             <div class="table-container">
@@ -33,7 +37,9 @@
                                             <form action="/api/cards/unban/<%= card._id %>" method="post">
                                                 <button class="big-btn" id="unban-btn">Desbloquear</button>
                                             </form>
-                                                
+                                            <form action="/api/cards/delete/<%= card._id %>" method="post">
+                                                <button class="big-btn" id="delete-btn">Borrar</button>
+                                            </form>    
         
                                         </div>
                                     </td>
@@ -45,7 +51,9 @@
                                             <form action="/api/cards/ban/<%= card._id %>" method="post">
                                                 <button class="big-btn" id="ban-btn">Bloquear</button>
                                             </form>
-                                                
+                                            <form action="/api/cards/delete/<%= card._id %>" method="post">
+                                                <button class="big-btn" id="delete-btn">Borrar</button>
+                                            </form>     
         
                                         </div>
                                     </td>

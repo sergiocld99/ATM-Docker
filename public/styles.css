@@ -197,6 +197,10 @@ button {
     justify-content: center;
 }
 
+label {
+    margin-top: 20px;
+}
+
 footer {
     bottom: 0;
     margin: 20px;

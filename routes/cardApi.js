@@ -11,7 +11,7 @@ router.get('/pin/:nro', controller.getPin)
 router.post('/addcard', controller.postCard)
 router.post('/ban/:id', controller.banearTarjeta)
 router.post('/unban/:id', controller.desbanearTarjeta)
-router.delete('/delete/:id', controller.deleteCard)
+router.post('/delete/:id', controller.deleteCard)
 
 // Atributo público
 module.exports = router;

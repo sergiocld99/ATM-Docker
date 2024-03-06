@@ -51,7 +51,7 @@ const controller = {
         })
 
         await nuevaCuenta.save()
-        res.json(savedCard);
+        res.redirect('/front/cards')
     },
 
     // Busca la tarjeta asociada al número pasado por parámetro y devuelve el PIN junto al ID
@@ -106,7 +106,7 @@ const controller = {
         if (cuenta) await cuenta.deleteOne()
 
         const result = await card.deleteOne()
-        return result ? res.json(result) : res.status(400).json({message: "Error al borrar"}) 
+        return result ? res.redirect('/front/cards') : res.status(400).json({message: "Error al borrar"}) 
     }
 }
 
